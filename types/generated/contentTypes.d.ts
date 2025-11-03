@@ -583,7 +583,10 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     question: Schema.Attribute.String & Schema.Attribute.Required;
-    type: Schema.Attribute.Enumeration<['general', 'gun', 'customerService']> &
+    showInWidget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    type: Schema.Attribute.Enumeration<
+      ['general', 'gun', 'customerService', 'training']
+    > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'general'>;
     updatedAt: Schema.Attribute.DateTime;
