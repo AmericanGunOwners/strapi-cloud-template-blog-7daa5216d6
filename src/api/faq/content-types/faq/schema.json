@@ -33,6 +33,15 @@
     "showInWidget": {
       "type": "boolean",
       "default": false
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "question"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }

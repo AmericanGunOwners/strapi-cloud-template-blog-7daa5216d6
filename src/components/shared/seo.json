@@ -10,17 +10,39 @@
   "attributes": {
     "metaTitle": {
       "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 60
     },
     "metaDescription": {
       "type": "text",
-      "required": true
+      "required": true,
+      "maxLength": 160
     },
     "shareImage": {
       "type": "media",
       "multiple": false,
       "required": false,
       "allowedTypes": ["images"]
+    },
+    "metaRobots": {
+      "type": "string"
+    },
+    "metaViewport": {
+      "type": "string"
+    },
+    "canonicalURL": {
+      "type": "string"
+    },
+    "keywords": {
+      "type": "text"
+    },
+    "metaSocial": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.meta-social"
+    },
+    "structuredData": {
+      "type": "json"
     }
   }
 }
