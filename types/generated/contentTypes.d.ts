@@ -592,7 +592,7 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
     showInWidget: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     slug: Schema.Attribute.UID<'question'>;
     type: Schema.Attribute.Enumeration<
-      ['general', 'gun', 'customerService', 'training']
+      ['general', 'gun', 'customerService', 'training', 'california']
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'general'>;
