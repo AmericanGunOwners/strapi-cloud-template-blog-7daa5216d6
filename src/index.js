@@ -8,7 +8,12 @@ module.exports = {
    *
    * This gives you an opportunity to extend code.
    */
-  register(/*{ strapi }*/) {},
+  register({ strapi }) {
+    strapi.customFields.register({
+      name: 'markdown-editor',
+      type: 'text',
+    });
+  },
 
   /**
    * An asynchronous bootstrap function that runs before

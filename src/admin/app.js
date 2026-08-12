@@ -1,4 +1,6 @@
 import { useFetchClient, useNotification } from '@strapi/admin/strapi-admin';
+import { Feather } from '@strapi/icons';
+import { MetadataPanel } from './extensions/metadata-panel/MetadataPanel';
 
 const getPreviewUrl = async ({ get, model, documentId, activeTab }) => {
   const { data } = await get(`/content-manager/preview/url/${model}`, {
@@ -72,9 +74,35 @@ const bootstrap = app => {
     OpenPreviewInNewTabAction,
     CopyPreviewLinkAction,
   ]);
+
+  app.getPlugin('content-manager').apis.addEditViewSidePanel(panels => [...panels, MetadataPanel]);
+};
+
+const register = app => {
+  app.customFields.register({
+    name: 'markdown-editor',
+    type: 'text',
+    icon: Feather,
+    intlLabel: {
+      id: 'markdown-editor.label',
+      defaultMessage: 'Markdown editor (rich paste)',
+    },
+    intlDescription: {
+      id: 'markdown-editor.description',
+      defaultMessage:
+        'Rich text editor that converts pasted content (links, headings, tables) into clean Markdown.',
+    },
+    components: {
+      Input: async () =>
+        import('./extensions/markdown-editor/Input').then(mod => ({
+          default: mod.default,
+        })),
+    },
+  });
 };
 
 export default {
   config,
   bootstrap,
+  register,
 };

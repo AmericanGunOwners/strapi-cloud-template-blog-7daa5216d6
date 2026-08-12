@@ -236,6 +236,27 @@ async function importAuthors() {
   }
 }
 
+async function setDefaultArticleSort() {
+  const contentTypesService = strapi.plugin('content-manager').service('content-types');
+  const contentType = { uid: 'api::article.article' };
+
+  const configuration = await contentTypesService.findConfiguration(contentType);
+  const { defaultSortBy, defaultSortOrder } = configuration.settings || {};
+
+  if (defaultSortBy === 'id' && defaultSortOrder === 'DESC') {
+    return;
+  }
+
+  await contentTypesService.updateConfiguration(contentType, {
+    ...configuration,
+    settings: {
+      ...configuration.settings,
+      defaultSortBy: 'id',
+      defaultSortOrder: 'DESC',
+    },
+  });
+}
+
 async function importSeedData() {
   // Allow read of application content types
   await setPublicPermissions({
@@ -271,4 +292,5 @@ async function main() {
 
 module.exports = async () => {
   await seedExampleApp();
+  await setDefaultArticleSort();
 };
