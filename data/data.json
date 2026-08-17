@@ -65,9 +65,7 @@
     {
       "title": "The internet's Own boy",
       "slug": "the-internet-s-own-boy",
-      "category": {
-        "id": 5
-      },
+      "categories": [5],
       "author": {
         "id": 1
       },
@@ -100,9 +98,7 @@
     {
       "title": "This shrimp is awesome",
       "slug": "this-shrimp-is-awesome",
-      "category": {
-        "id": 4
-      },
+      "categories": [4],
       "author": {
         "id": 1
       },
@@ -135,9 +131,7 @@
     {
       "title": "A bug is becoming a meme on the internet",
       "slug": "a-bug-is-becoming-a-meme-on-the-internet",
-      "category": {
-        "id": 2
-      },
+      "categories": [2],
       "author": {
         "id": 2
       },
@@ -170,9 +164,7 @@
     {
       "title": "Beautiful picture",
       "slug": "beautiful-picture",
-      "category": {
-        "id": 4
-      },
+      "categories": [4],
       "author": {
         "id": 2
       },
@@ -205,9 +197,7 @@
     {
       "title": "What's inside a Black Hole",
       "slug": "what-s-inside-a-black-hole",
-      "category": {
-        "id": 1
-      },
+      "categories": [1],
       "author": {
         "id": 2
       },
